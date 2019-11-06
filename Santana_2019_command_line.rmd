@@ -1,0 +1,465 @@
+---
+title: "Project_Boris"
+author: "Carolina Oliveira de Santana"
+date: "9/30/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+In this section we combine left and right reads using the 'join_paired_ends.py' script from Qiime.  
+
+```{bash}
+#variable_names
+directory=P1_1-227388221/
+fastq_file_1=P1-1_S36_L001_R1_001
+fastq_file_2=P1-1_S36_L001_R2_001
+output_name=P1-1
+#commands
+	java -jar /scratch/cod264/cod264/Trimmomatic-0.39/trimmomatic-0.39.jar PE -phred33 ${directory}${fastq_file_1}.fastq.gz  ${directory}${fastq_file_2}.fastq.gz ${directory}${output_name}_forward_paired.fq.gz ${directory}${output_name}_forward_unpaired.fq.gz ${directory}${output_name}_reverse_paired.fq.gz ${directory}${output_name}_reverse_unpaired.fq.gz ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+	join_paired_ends.py -f ${directory}${output_name}_forward_paired.fq.gz -r ${directory}${output_name}_reverse_paired.fq.gz -o ${directory}${output_name}_paired.fq -j 4 -p 1
+	# #to check the number of surviving seqeunces use 
+	wc -l ${directory}${output_name}_paired.fq/fastqjoin.join.fastq
+	# # this will print out the number
+	convert_fastaqual_fastq.py -f ${directory}${output_name}_paired.fq/fastqjoin.join.fastq -c fastq_to_fastaqual -o ${directory}
+
+#variable_names
+directory=P1_2-227388216/
+fastq_file_1=P1-2_S37_L001_R1_001
+fastq_file_2=P1-2_S37_L001_R2_001
+output_name=P1-2
+#commands
+	java -jar /scratch/cod264/cod264/Trimmomatic-0.39/trimmomatic-0.39.jar PE -phred33 ${directory}${fastq_file_1}.fastq.gz  ${directory}${fastq_file_2}.fastq.gz ${directory}${output_name}_forward_paired.fq.gz ${directory}${output_name}_forward_unpaired.fq.gz ${directory}${output_name}_reverse_paired.fq.gz ${directory}${output_name}_reverse_unpaired.fq.gz ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+	join_paired_ends.py -f ${directory}${output_name}_forward_paired.fq.gz -r ${directory}${output_name}_reverse_paired.fq.gz -o ${directory}${output_name}_paired.fq -j 4 -p 1
+	# #to check the number of surviving seqeunces use 
+	wc -l ${directory}${output_name}_paired.fq/fastqjoin.join.fastq
+	# # this will print out the number
+	convert_fastaqual_fastq.py -f ${directory}${output_name}_paired.fq/fastqjoin.join.fastq -c fastq_to_fastaqual -o ${directory}
+
+
+#variable_names
+directory=P1_3-227388220/
+fastq_file_1=P1-3_S38_L001_R1_001
+fastq_file_2=P1-3_S38_L001_R2_001
+output_name=P1-3
+#commands
+	java -jar /scratch/cod264/cod264/Trimmomatic-0.39/trimmomatic-0.39.jar PE -phred33 ${directory}${fastq_file_1}.fastq.gz  ${directory}${fastq_file_2}.fastq.gz ${directory}${output_name}_forward_paired.fq.gz ${directory}${output_name}_forward_unpaired.fq.gz ${directory}${output_name}_reverse_paired.fq.gz ${directory}${output_name}_reverse_unpaired.fq.gz ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+	join_paired_ends.py -f ${directory}${output_name}_forward_paired.fq.gz -r ${directory}${output_name}_reverse_paired.fq.gz -o ${directory}${output_name}_paired.fq -j 4 -p 1
+	# #to check the number of surviving seqeunces use 
+	wc -l ${directory}${output_name}_paired.fq/fastqjoin.join.fastq
+	# # this will print out the number
+	convert_fastaqual_fastq.py -f ${directory}${output_name}_paired.fq/fastqjoin.join.fastq -c fastq_to_fastaqual -o ${directory}
+	
+	
+#variable_names
+directory=P2_1-227388222/
+fastq_file_1=P2-1_S39_L001_R1_001
+fastq_file_2=P2-1_S39_L001_R2_001
+output_name=P2-1
+#commands
+	java -jar /scratch/cod264/cod264/Trimmomatic-0.39/trimmomatic-0.39.jar PE -phred33 ${directory}${fastq_file_1}.fastq.gz  ${directory}${fastq_file_2}.fastq.gz ${directory}${output_name}_forward_paired.fq.gz ${directory}${output_name}_forward_unpaired.fq.gz ${directory}${output_name}_reverse_paired.fq.gz ${directory}${output_name}_reverse_unpaired.fq.gz ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+	join_paired_ends.py -f ${directory}${output_name}_forward_paired.fq.gz -r ${directory}${output_name}_reverse_paired.fq.gz -o ${directory}${output_name}_paired.fq -j 4 -p 1
+	# #to check the number of surviving seqeunces use 
+	wc -l ${directory}${output_name}_paired.fq/fastqjoin.join.fastq
+	# # this will print out the number
+	convert_fastaqual_fastq.py -f ${directory}${output_name}_paired.fq/fastqjoin.join.fastq -c fastq_to_fastaqual -o ${directory}
+
+
+#variable_names
+directory=P2_2-227388214/
+fastq_file_1=P2-2_S40_L001_R1_001
+fastq_file_2=P2-2_S40_L001_R2_001
+output_name=P2-2
+#commands
+	java -jar /scratch/cod264/cod264/Trimmomatic-0.39/trimmomatic-0.39.jar PE -phred33 ${directory}${fastq_file_1}.fastq.gz  ${directory}${fastq_file_2}.fastq.gz ${directory}${output_name}_forward_paired.fq.gz ${directory}${output_name}_forward_unpaired.fq.gz ${directory}${output_name}_reverse_paired.fq.gz ${directory}${output_name}_reverse_unpaired.fq.gz ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+	join_paired_ends.py -f ${directory}${output_name}_forward_paired.fq.gz -r ${directory}${output_name}_reverse_paired.fq.gz -o ${directory}${output_name}_paired.fq -j 4 -p 1
+	# #to check the number of surviving seqeunces use 
+	wc -l ${directory}${output_name}_paired.fq/fastqjoin.join.fastq
+	# # this will print out the number
+	convert_fastaqual_fastq.py -f ${directory}${output_name}_paired.fq/fastqjoin.join.fastq -c fastq_to_fastaqual -o ${directory}
+
+
+#variable_names
+directory=P2_3-227388217/
+fastq_file_1=P2-3_S41_L001_R1_001
+fastq_file_2=P2-3_S41_L001_R2_001
+output_name=P2-3
+#commands
+	java -jar /scratch/cod264/cod264/Trimmomatic-0.39/trimmomatic-0.39.jar PE -phred33 ${directory}${fastq_file_1}.fastq.gz  ${directory}${fastq_file_2}.fastq.gz ${directory}${output_name}_forward_paired.fq.gz ${directory}${output_name}_forward_unpaired.fq.gz ${directory}${output_name}_reverse_paired.fq.gz ${directory}${output_name}_reverse_unpaired.fq.gz ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+	join_paired_ends.py -f ${directory}${output_name}_forward_paired.fq.gz -r ${directory}${output_name}_reverse_paired.fq.gz -o ${directory}${output_name}_paired.fq -j 4 -p 1
+	# #to check the number of surviving seqeunces use 
+	wc -l ${directory}${output_name}_paired.fq/fastqjoin.join.fastq
+	# # this will print out the number
+	convert_fastaqual_fastq.py -f ${directory}${output_name}_paired.fq/fastqjoin.join.fastq -c fastq_to_fastaqual -o ${directory}
+
+
+#variable_names
+directory=P3_1-227388218/
+fastq_file_1=P3-1_S42_L001_R1_001
+fastq_file_2=P3-1_S42_L001_R2_001
+output_name=P3-1
+#commands
+	java -jar /scratch/cod264/cod264/Trimmomatic-0.39/trimmomatic-0.39.jar PE -phred33 ${directory}${fastq_file_1}.fastq.gz  ${directory}${fastq_file_2}.fastq.gz ${directory}${output_name}_forward_paired.fq.gz ${directory}${output_name}_forward_unpaired.fq.gz ${directory}${output_name}_reverse_paired.fq.gz ${directory}${output_name}_reverse_unpaired.fq.gz ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+	join_paired_ends.py -f ${directory}${output_name}_forward_paired.fq.gz -r ${directory}${output_name}_reverse_paired.fq.gz -o ${directory}${output_name}_paired.fq -j 4 -p 1
+	# #to check the number of surviving seqeunces use 
+	wc -l ${directory}${output_name}_paired.fq/fastqjoin.join.fastq
+	# # this will print out the number
+	convert_fastaqual_fastq.py -f ${directory}${output_name}_paired.fq/fastqjoin.join.fastq -c fastq_to_fastaqual -o ${directory}
+
+#variable_names
+directory=P3_2-227388219/
+fastq_file_1=P3-2_S43_L001_R1_001
+fastq_file_2=P3-2_S43_L001_R2_001
+output_name=P3-2
+#commands
+	java -jar /scratch/cod264/cod264/Trimmomatic-0.39/trimmomatic-0.39.jar PE -phred33 ${directory}${fastq_file_1}.fastq.gz  ${directory}${fastq_file_2}.fastq.gz ${directory}${output_name}_forward_paired.fq.gz ${directory}${output_name}_forward_unpaired.fq.gz ${directory}${output_name}_reverse_paired.fq.gz ${directory}${output_name}_reverse_unpaired.fq.gz ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+	join_paired_ends.py -f ${directory}${output_name}_forward_paired.fq.gz -r ${directory}${output_name}_reverse_paired.fq.gz -o ${directory}${output_name}_paired.fq -j 4 -p 1
+	#to check the number of surviving seqeunces use 
+	wc -l ${directory}${output_name}_paired.fq/fastqjoin.join.fastq
+	# this will print out the number
+	convert_fastaqual_fastq.py -f ${directory}${output_name}_paired.fq/fastqjoin.join.fastq -c fastq_to_fastaqual -o ${directory}
+
+
+#variable_names
+directory=P3_3-227388215/
+fastq_file_1=P3-3_S44_L001_R1_001
+fastq_file_2=P3-3_S44_L001_R2_001
+output_name=P3-3
+#commands
+	java -jar /scratch/cod264/cod264/Trimmomatic-0.39/trimmomatic-0.39.jar PE -phred33 ${directory}${fastq_file_1}.fastq.gz  ${directory}${fastq_file_2}.fastq.gz ${directory}${output_name}_forward_paired.fq.gz ${directory}${output_name}_forward_unpaired.fq.gz ${directory}${output_name}_reverse_paired.fq.gz ${directory}${output_name}_reverse_unpaired.fq.gz ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:100
+	join_paired_ends.py -f ${directory}${output_name}_forward_paired.fq.gz -r ${directory}${output_name}_reverse_paired.fq.gz -o ${directory}${output_name}_paired.fq -j 4 -p 1
+	# #to check the number of surviving seqeunces use 
+	wc -l ${directory}${output_name}_paired.fq/fastqjoin.join.fastq
+	# # this will print out the number
+	convert_fastaqual_fastq.py -f ${directory}${output_name}_paired.fq/fastqjoin.join.fastq -c fastq_to_fastaqual -o ${directory}
+```
+
+In this section we use Qiime2 to deblur the joined reads, perform clustering using VSEARCH, define phylogeny, and perform several different statistics and diversity measures. 
+
+```{bash}
+#Qiime2 Script
+	# Version 2
+	# Now uses vsearch for OTU picking, as per:
+	# https://docs.qiime2.org/2019.4/tutorials/otu-clustering/
+#
+###
+# Build qiime singularity 
+###
+		#First go to a directory with ~10GB of space
+		#Download qiime container (Only once and it works for good)
+		#singularity pull docker://qiime2/core:2019.4
+		#To run qiime uncomment the next line:
+		#singularity shell core_2019.4.sif
+#
+# Script Section
+	# CHANGE THESE
+	sample_dir=Boris
+	#
+	#Define directory
+	base_dir=/scratch/ps163/qiime2/
+	input_dir=${base_dir}/${sample_dir}/
+	mapping_file=${input_dir}/MappingFile_mangue.csv
+	#
+	qiime tools import \
+	 --type 'SampleData[SequencesWithQuality]' \
+	 --input-path ${input_dir}/fastq \
+	 --input-format CasavaOneEightSingleLanePerSampleDirFmt \
+	 --output-path ${input_dir}/demux-joined.qza
+	  
+	qiime dada2 denoise-single \
+	  --i-demultiplexed-seqs ${input_dir}/demux-joined.qza \
+	  --p-trim-left 3 \
+	  --p-trunc-len 0 \
+	  --o-representative-sequences ${input_dir}/pre-otu-rep-seqs-dada2.qza \
+	  --o-table ${input_dir}/pre-otu-table-dada2.qza \
+	  --o-denoising-stats ${input_dir}/stats-dada2.qza
+	  
+	qiime metadata tabulate \
+	  --m-input-file ${input_dir}/stats-dada2.qza \
+	  --o-visualization ${input_dir}/stats-dada2.qzv
+	  
+	#07.10.19: changed 'i-reference-sequences' to an unaligned format. vsearch does not support aligned reference sequences.
+	qiime vsearch cluster-features-open-reference \
+	  --i-table ${input_dir}/pre-otu-table-dada2.qza \
+	  --i-sequences ${input_dir}/pre-otu-rep-seqs-dada2.qza \
+	  --i-reference-sequences ${base_dir}/gg_12_10.qza \
+	  --p-perc-identity 0.97 \
+	  --o-clustered-table ${input_dir}table-dada2.qza \
+	  --o-clustered-sequences ${input_dir}rep-seqs-dada2.qza \
+	  --o-new-reference-sequences ${input_dir}new-ref-seqs-or-97.qza
+	  
+	qiime feature-table summarize \
+	  --i-table ${input_dir}/table-dada2.qza \
+	  --o-visualization ${input_dir}feature_table.qzv \
+	  --m-sample-metadata-file ${mapping_file}
+	  
+	qiime feature-table tabulate-seqs \
+	  --i-data ${input_dir}/rep-seqs-dada2.qza \
+	  --o-visualization ${input_dir}dada2-rep-seqs.qzv
+	  
+	  #Phylogeny
+	qiime phylogeny align-to-tree-mafft-fasttree \
+	  --i-sequences ${input_dir}/rep-seqs-dada2.qza \
+	  --o-alignment ${input_dir}/aligned-rep-seqs.qza \
+	  --o-masked-alignment ${input_dir}/masked-aligned-rep-seqs.qza \
+	  --o-tree ${input_dir}/unrooted-tree.qza \
+	  --o-rooted-tree ${input_dir}/rooted-tree.qza
+	  
+	#to view trees 
+	qiime tools export \
+	  --input-path ${input_dir}/unrooted-tree.qza \
+	  --output-path ${input_dir}/exported-unrooted-tree
+	  
+	#to view trees 
+	qiime tools export \
+	  --input-path ${input_dir}/rooted-tree.qza \
+	  --output-path ${input_dir}/exported-rooted-tree
+	  
+	  #rarefac. 	9340
+	 # Core diversity analysis
+	qiime diversity core-metrics-phylogenetic \
+	  --i-phylogeny ${input_dir}/rooted-tree.qza \
+	  --i-table ${input_dir}/table-dada2.qza \
+	  --p-sampling-depth 9340 \
+	  --m-metadata-file ${mapping_file} \
+	  --output-dir ${input_dir}core-metrics-results
+	  
+	#Do not proceed group significance tests below. Go to Alpha raref.
+	qiime diversity alpha-group-significance \
+	  --i-alpha-diversity ${input_dir}/core-metrics-results/faith_pd_vector.qza \
+	  --m-metadata-file ${mapping_file} \
+	  --o-visualization ${input_dir}/core-metrics-results/faith-pd-group-significance.qzv
+
+	qiime diversity alpha-group-significance \
+	  --i-alpha-diversity ${input_dir}/core-metrics-results/evenness_vector.qza \
+	  --m-metadata-file ${mapping_file} \
+	  --o-visualization ${input_dir}/core-metrics-results/evenness-group-significance.qzv
+	
+	#07.11.19 - Changed metadata-column to "Site" instead of "InputFileName", the latter generated an error "All values in the grouping vector are unique". 
+	qiime diversity beta-group-significance \
+	  --i-distance-matrix  ${input_dir}/core-metrics-results/unweighted_unifrac_distance_matrix.qza \
+	  --m-metadata-file ${mapping_file} \
+	  --m-metadata-column Site \
+	  --o-visualization ${input_dir}/core-metrics-results/unweighted-unifrac-site-significance.qzv \
+	  --p-pairwise
+
+    qiime diversity beta-group-significance \
+          --i-distance-matrix  ${input_dir}/core-metrics-results/weighted_unifrac_distance_matrix.qza \
+          --m-metadata-file ${mapping_file} \
+          --m-metadata-column Site \
+          --o-visualization ${input_dir}/core-metrics-results/weighted-unifrac-site-significance.qzv \
+          --p-pairwise
+		  
+		qiime diversity beta-group-significance \
+          --i-distance-matrix  ${input_dir}/core-metrics-results/bray_curtis_distance_matrix.qza \
+          --m-metadata-file ${mapping_file} \
+          --m-metadata-column Site \
+          --o-visualization ${input_dir}/core-metrics-results/bray-curtis-site-significance.qzv \
+          --p-pairwise
+		
+		qiime diversity beta-group-significance \
+          --i-distance-matrix  ${input_dir}/core-metrics-results/jaccard_distance_matrix.qza \
+          --m-metadata-file ${mapping_file} \
+          --m-metadata-column Site \
+          --o-visualization ${input_dir}/core-metrics-results/jaccard-site-significance.qzv \
+          --p-pairwise
+	  
+	#Alpha raref.
+	qiime diversity alpha-rarefaction \
+	  --i-table ${input_dir}/table-dada2.qza \
+	  --i-phylogeny ${input_dir}/rooted-tree.qza \
+	  --p-max-depth 17000 \
+	  --m-metadata-file ${mapping_file} \
+	  --o-visualization ${input_dir}/core-metrics-results/alpha-rarefaction.qzv
+	  
+	  #taxonomy
+	qiime feature-classifier classify-sklearn \
+	  --i-classifier /scratch/ps163/qiime2/gg-13-8-99-515-806-nb-classifier.qza \
+	  --i-reads ${input_dir}/rep-seqs-dada2.qza \
+	  --o-classification ${input_dir}/taxonomy.qza
+	 
+	qiime metadata tabulate \
+	  --m-input-file ${input_dir}/taxonomy.qza \
+	  --o-visualization ${input_dir}/taxonomy.qzv
+	  
+	qiime taxa barplot \
+	  --i-table ${input_dir}/table-dada2.qza \
+	  --i-taxonomy ${input_dir}/taxonomy.qza \
+	  --m-metadata-file ${mapping_file} \
+	  --o-visualization ${input_dir}/taxa-bar-plots.qzv
+```
+
+
+Some figures are generated by QIIME2 pipeline
+
+(Supplemental)Fig 2. Alpha rarefaction curves for Shannon diversity index by sequencing depth
+ 
+ #p-sampling-depth will need to be changed for each run
+ #p-sampling-depth = 9340
+
+#Core diversity analysis
+	qiime diversity core-metrics-phylogenetic \
+	  --i-phylogeny ${input_dir}/rooted-tree.qza \
+	  --i-table ${input_dir}/table-dada2.qza \
+	  --p-sampling-depth 9340 \
+	  --m-metadata-file ${mapping_file} \
+	  --output-dir ${input_dir}core-metrics-results
+
+```
+
+Code for Figure 4
+Fig 4. Statistic significance tests by samples groups boxplots
+
+```{bash}
+#Fig 4. Statistic significance tests by samples groups boxplots
+ qiime diversity beta-group-significance \
+          --i-distance-matrix  ${input_dir}/core-metrics-results/weighted_unifrac_distance_matrix.qza \
+          --m-metadata-file ${mapping_file} \
+          --m-metadata-column Site \
+          --o-visualization ${input_dir}/core-metrics-results/weighted-unifrac-site-significance.qzv \
+          --p-pairwise
+
+qiime diversity beta-group-significance \
+          --i-distance-matrix  ${input_dir}/core-metrics-results/bray_curtis_distance_matrix.qza \
+          --m-metadata-file ${mapping_file} \
+          --m-metadata-column Site \
+          --o-visualization ${input_dir}/core-metrics-results/bray-curtis-site-significance.qzv \
+          --p-pairwise
+
+```
+
+We are now moving to R to handle the files generated above to generate additional figures.
+
+```{r library load}
+library(tidyverse)
+library(qiime2R)
+library(phyloseq)
+library(plyr)
+library(ggplot2)
+library(metacoder)
+library(taxa)
+library(dplyr)
+library(vegan)
+
+#File location may need to be changed here
+
+metadata<-read_tsv("MappingFile_mangue.csv")
+feature_table<-read_qza("table-dada2.qza")
+
+info_data <-feature_table$data
+temptaxa <- read_qza('taxonomy.qza')
+temptax<-temptaxa$data
+
+rooted_tree<- read_qza("rooted_tree.qza")
+root_tree <- rooted_tree$data
+
+```
+
+Code for Figure 2
+Fig 2. Taxonomic composition of the 6 most abundant phyla in the mangrove samples.
+
+```{r figure 2}
+#Fig 2. Taxonomic composition of the 6 most abundant phyla in the mangrove samples.
+#### Create phyloseq object
+MG_data<-phyloseq(
+  otu_table(info_data, taxa_are_rows = T),
+  phy_tree(root_tree),
+  tax_table(as.data.frame(taxtable_p1) %>% select(-Confidence) %>% column_to_rownames("Feature.ID") %>% as.matrix()), # transforming the taxonomy for compatibility with phyloseq
+  sample_data(metadata %>% as.data.frame() %>% column_to_rownames("sample-id")))
+### Subsample the most abundant phyla
+phylum.sum = tapply(taxa_sums(MG_data), tax_table(MG_data)[, "Phylum"], sum, na.rm=TRUE) #objeto só com 6 filos mais abundantes
+top6phyla = names(sort(phylum.sum, TRUE))[1:6]
+MG_6p_new = prune_taxa((tax_table(MG_data)[, "Phylum"] %in% top6phyla), MG_data)
+### Exclude OTUs that account for less than 1 percent of total (for more taxonomy levels)
+Abund_otus1 <- filter_taxa(MG_data, function(x) sum(x > total*0.01) > 0, TRUE)
+### Taxonomy barplots
+plot_bar(Abund_otus1, "Phylum", fill="Class") + geom_bar(aes(color=Class, fill=Class), stat="identity", position="stack")
+plot_bar(Abund_otus1, "Class", fill="Order") + geom_bar(aes(color=Order, fill=Order), stat="identity", position="stack")
+plot_bar(Abund_otus1, "Order", fill="Family") + geom_bar(aes(color=Family, fill=Family), stat="identity", position="stack")+ theme(legend.position="bottom")
+```
+
+Code for Figure 3
+Fig 3. Alpha diversity measures of mangrove sediment samples by site.
+
+```{r figure 3}
+
+#Fig 3. Alpha diversity measures of mangrove sediment samples by site.
+merge_data_site = merge_samples(MG_data, "Site")
+
+plot_richness (merge_data_site, color= "Site", title="Diversity by Site", measures=c("Observed", "Chao1", "ACE", "Shannon", "Simpson", "InvSimpson"))+ geom_point(size=5, alpha=0.7)
+```
+
+Code for Supplemental Figure 5
+NMDS plots for non-phylogenetic beta diversity analyses. Jaccard qualitative distance metric and Bray-Curtis quantitative distance metric.
+
+```{r figure 5}
+#Fig 5. NMDS plots for non-phylogenetic beta diversity analyses. Jaccard qualitative distance metric and Bray-Curtis quantitative distance metric.
+#Remove taxa not seen more than 3 times in at least 20% of the samples
+MG_processed = filter_taxa(MG_data, function(x) sum(x > 3) > (0.2*length(x)), TRUE)
+MG_processed
+#Standardize abundances to the median sequencing depth
+total = median(sample_sums(MG_processed))
+standf = function(x, t=total) round(t * (x / sum(x)))
+gps = transform_sample_counts(MG_processed, standf)
+## Create ordination objects and plot distances - NMDS
+Ordination <-ordinate(MG_processed, "NMDS", "bray")
+plot_ordination(MG_processed, Ordination, type="Site", shape= "Site",
+                title="Taxa Ordination Bray-Curtis")+ geom_point(size=5)
+Ordination2 <-ordinate(MG_processed, "NMDS", "jaccard", binary = T)
+plot_ordination(MG_processed, Ordination2, type="Site", shape= "Site",
+                title="Taxa Ordination Jaccard")+ geom_point(size=5)
+
+PCoA plots for phylogeny-based distance metrics. Qualitative Unweighted Unifrac distance and quantitative Weigthed Unifrac distance.
+
+```{r figure 5}
+#Fig 5. PCoA plots for phylogeny-based distance metrics. Qualitative Unweighted Unifrac distance and quantitative Weigthed Unifrac distance.
+## Create ordination objects and plot PCoAs
+ordu = ordinate(MG_processed, "PCoA", "unifrac", weighted=FALSE)
+plot_ordination(MG_processed, ordu, shape="Site", title="Unweighted Unifrac Distance")+ geom_point(size=5)
+ordu2 = ordinate(MG_processed, "PCoA", "unifrac", weighted=TRUE)
+plot_ordination(MG_processed, ordu2, shape="Site", title="Weighted Unifrac Distance")+ geom_point(size=5)
+
+```
+Code for Figure 5
+Figure 5. Principal Component Analysis of environmental variables
+
+```{r figure 4}
+Otu_veg <- t(info_data) # Samples become rows and OTUs are columns 
+Otus.pca <- rda(Otu_veg)
+OTUs_dist <- vegdist(Otu_veg) # Creates distance matrix of the OTUs
+Envdt <- Evironmental_variables[,2:5]
+ordiplot(Otus.pca)
+Tax_env <- envfit(OTUs_dist, Envdt, permu=999)
+Tax_env
+plot(Tax_env, p.max = 0.1)
+
+```
+
+Code for Figure 6
+Fig 6. Phylogenetic tree of life at the family level.
+
+```{r figure 6}
+#Fig 6. Phylogenetic tree of life at the family level.
+MG_tree_meta <- parse_phyloseq(MG_data)
+Familia_tree <- tax_glom(MG_tree_meta, taxrank=rank_names(MG_data)[5])
+Familia_meta <- parse_phyloseq(Familia_tree)
+heat_tree(Familia_meta,
+          node_size = n_obs,
+          node_color = n_obs,
+          node_label = taxon_names,
+          tree_label = taxon_names, node_label_size_range = c(0.01, 0.05))
+
+```
+
+Code for Figure 7
+
+
+```{python}
+python novembro.py -i mangrove/Otu_frequency.csv -t mangrove/corrected_taxonomy.tsv -o mangrove/
+
+```
+
+
+Figures are further altered in post to improve legibility. 
